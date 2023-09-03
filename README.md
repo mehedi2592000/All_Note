@@ -23,3 +23,57 @@
         4. skipWhile
 
         
+    Join Methode
+    
+         Inner JOin::
+            var innerJoin=from student in studets
+        		join address in address
+        		on student.AddessId equals address.Id
+        		select new
+        		{
+        			studentname=student.Name,
+        			studentAddrss=address.Address
+        		}.ToList();
+            =========================================================
+         Inner JOin: Multiple Table:
+            
+            var innerJoin=from student in studets
+            		join address in address
+            		on student.AddessId equals address.Id
+            		join marks in Marks
+            		on student.Id equals marks.Id 
+            		select new
+            		{
+            			studentname=student.Name,
+            			studentAddrss=address.Address,
+            			studentMarks=a
+            		}.ToList();
+            =========================================================
+         Left Join 
+            
+            var leftJoinQuery =
+                from leftItem in leftCollection
+                join rightItem in rightCollection
+                on leftItem.Key equals rightItem.Key into joinedItems
+                from resultItem in joinedItems.DefaultIfEmpty()
+                select new
+                {
+                    LeftValue = leftItem.Value,
+                    RightValue = (resultItem != null) ? resultItem.Value : null // Handle null values
+                };
+            =============
+            
+         Right Join
+            
+            var rightJoinQuery =
+                from rightItem in rightCollection
+                join leftItem in leftCollection
+                on rightItem.Key equals leftItem.Key into joinedItems
+                from resultItem in joinedItems.DefaultIfEmpty()
+                select new
+                {
+                    RightValue = rightItem.Value,
+                    LeftValue = (resultItem != null) ? resultItem.Value : null // Handle null values
+                };
+
+        
