@@ -69,4 +69,9 @@ hi This Is All Jquery
     - hide()            -- it hide all dive html
     - toggle()          -- one click hide second click show 
     - fadeto()          -- suppos anyone click then you want to blur this portion 
+    - animate()         -- if you want to use Raw CSS
+    - has()
+    - is()     37
+    - each             -- use for loop alternative 
+    
 
